@@ -12,7 +12,6 @@
 		14A98C912D3BFD54007FCFE7 /* YearProgressWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 14A98C7E2D3BFD53007FCFE7 /* YearProgressWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		14A98CFC2D3C0964007FCFE7 /* YearProgressCore in Frameworks */ = {isa = PBXBuildFile; productRef = 14A98CFB2D3C0964007FCFE7 /* YearProgressCore */; };
 		14A98CFE2D3C0978007FCFE7 /* YearProgressCore in Frameworks */ = {isa = PBXBuildFile; productRef = 14A98CFD2D3C0978007FCFE7 /* YearProgressCore */; };
-		14A98D002D3C0B0D007FCFE7 /* IconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A98CFF2D3C0B0D007FCFE7 /* IconGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +59,6 @@
 		14A98C7E2D3BFD53007FCFE7 /* YearProgressWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = YearProgressWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A98C802D3BFD53007FCFE7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		14A98C822D3BFD53007FCFE7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		14A98CFF2D3C0B0D007FCFE7 /* IconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -167,7 +165,6 @@
 				14A98C452D3BFC9B007FCFE7 /* Products */,
 				14A98CAA2D3C047F007FCFE7 /* Common */,
 				14A98CC42D3C04AB007FCFE7 /* YearProgressWidget */,
-				14A98CFF2D3C0B0D007FCFE7 /* IconGenerator.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -374,7 +371,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14A98D002D3C0B0D007FCFE7 /* IconGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
