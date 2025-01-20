@@ -7,7 +7,14 @@ struct YearProgressWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: YearProgressProvider()) { entry in
-            YearProgressWidgetView(entry: entry)
+            if #available(iOSApplicationExtension 17.0, *) {
+                YearProgressWidgetView(entry: entry)
+                    .containerBackground(.fill.tertiary, for: .widget)
+            } else {
+                YearProgressWidgetView(entry: entry)
+                    .padding()
+                    .background()
+            }
         }
         .configurationDisplayName("Year Progress")
         .description("Shows the current year's progress")
@@ -20,13 +27,17 @@ struct YearProgressWidgetView: View {
     @Environment(\.widgetFamily) var family
     
     var body: some View {
-        switch family {
-        case .systemSmall:
-            YearProgressCircleView(progress: entry.progress)
-        case .systemMedium:
-            YearProgressBarView(progress: entry.progress)
-        default:
-            Text("Unsupported size")
+        Group {
+            switch family {
+            case .systemSmall:
+                YearProgressCircleView(progress: entry.progress)
+                    .drawingGroup()
+            case .systemMedium:
+                YearProgressBarView(progress: entry.progress)
+                    .drawingGroup()
+            default:
+                Text("Unsupported size")
+            }
         }
     }
 }

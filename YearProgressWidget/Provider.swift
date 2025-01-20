@@ -15,18 +15,23 @@ struct YearProgressProvider: TimelineProvider {
     }
 
     func getSnapshot(in context: Context, completion: @escaping (YearProgressEntry) -> ()) {
-        let entry = YearProgressEntry(date: Date(), progress: YearProgressCalculator.calculate())
-        completion(entry)
+        autoreleasepool {
+            let entry = YearProgressEntry(date: Date(), progress: YearProgressCalculator.calculate())
+            completion(entry)
+        }
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let currentDate = Date()
-        let entry = YearProgressEntry(date: currentDate, progress: YearProgressCalculator.calculate())
-        
-        // Update every hour
-        let nextUpdateDate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate)!
-        let timeline = Timeline(entries: [entry], policy: .after(nextUpdateDate))
-        
-        completion(timeline)
+        autoreleasepool {
+            let currentDate = Date()
+            let entry = YearProgressEntry(date: currentDate, progress: YearProgressCalculator.calculate())
+            
+            // Update every hour
+            let nextUpdateDate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate) ?? currentDate.addingTimeInterval(3600)
+            
+            // Create timeline with a single entry to minimize memory usage
+            let timeline = Timeline(entries: [entry], policy: .after(nextUpdateDate))
+            completion(timeline)
+        }
     }
 } 
